@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -8,6 +10,17 @@ public class Player {
     private String weapon;
     private String location;
     private Scanner input = new Scanner(System.in);
+    private ArrayList<String> weapons = new ArrayList<>();
+    private HashMap<String, String> locations = new HashMap<>();
+
+    public Player(){
+        weapons.add("sword");
+        weapons.add("mace");
+        weapons.add("axe");
+
+        locations.put("forest", "Now entering the spooky old forest...");
+        locations.put("cave", "Now enter the cave of the dark side of the force");
+    }
 
     public String getName() {
         return name;
@@ -40,30 +53,26 @@ public class Player {
     }
 
     public void chooseWeapon() {
-
         while(this.weapon == null){
             //Ask for what weapon
             System.out.println("Choose your weapon: Mace or Sword");
             String weapon = input.nextLine();
 
-            if(weapon.equalsIgnoreCase("sword")
-                    || weapon.equalsIgnoreCase("mace")){
+            if(this.weapons.contains(weapon.toLowerCase())) {
                 System.out.format("A %s is a fine choice.\n", weapon);
                 this.weapon = weapon;
             }
+
         }
     }
 
     public void chooseLocation() {
         while(this.location == null) {
             System.out.println("Choose your location [forest/cave]");
-            String location = input.nextLine();
+            String location = input.nextLine().toLowerCase();
 
-            if (location.equalsIgnoreCase("forest")) {
-                System.out.println("Now entering spooky forest...");
-                this.location = location;
-            } else if (location.equalsIgnoreCase("cave")) {
-                System.out.println("Now entering cave strong with the dark side of the force");
+            if(locations.containsKey(location)){
+                System.out.println(locations.get(location));
                 this.location = location;
             }
         }
