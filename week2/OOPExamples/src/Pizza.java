@@ -6,9 +6,26 @@ import java.util.ArrayList;
 public class Pizza {
     private ArrayList<String> toppings;
     private String name;
+    public static int SIZE = 14;
 
     public Pizza(String name, ArrayList<String> toppings){
         this.toppings = toppings;
+        this.name = name;
+    }
+
+    public ArrayList<String> getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(ArrayList<String> toppings) {
+        this.toppings = toppings;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -25,12 +42,19 @@ public class Pizza {
     }
 
     public static void main(String[] args) {
-        ArrayList<String> toppings = new ArrayList<>();
-        toppings.add("Pepperoni");
-        Pizza pepperoni = new Pizza("Pepperoni Pizza", toppings);
+        System.out.println("HELLO WORLD");
+        String choice = "2";
+        int newChoice = Integer.parseInt(choice);
 
-        pepperoni.createSupremePizza();
+//        Integer foo = 1;
+//        int newChoice = foo.parseInt(choice);
 
+//        ArrayList<String> toppings = new ArrayList<>();
+//        toppings.add("Pepperoni");
+//        Pizza pepperoni = new Pizza("Pepperoni Pizza", toppings);
+//
+//        pepperoni.createSupremePizza();
+//
         Pizza supreme = Pizza.createSupremePizza();
     }
 
