@@ -32,6 +32,11 @@ public class Character {
         this.damage = damage;
     }
 
+    /**
+     * Makes current player battle enemy character both swing and deal damage
+     * once per iteration
+     * @param enemy Enemy character to do battle with.
+     */
     public void battle(Character enemy){
         System.out.printf("%s appears!\n", enemy.getName());
 
@@ -52,4 +57,5 @@ public class Character {
             System.out.printf(message, enemy.getName());
         }
     }
+
 }

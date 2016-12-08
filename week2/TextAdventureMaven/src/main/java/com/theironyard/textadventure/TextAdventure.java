@@ -20,6 +20,7 @@ public class TextAdventure {
             player.chooseWeapon();
             player.chooseLocation();
         }
+
         player.setDamage(10);
         player.setHealth(100);
 
