@@ -13,7 +13,6 @@ public class Forum {
         ArrayList<Post> posts = Post.loadData();
 
         Scanner input = new Scanner(System.in);
-
         int replyId = -1;
         while(true){
             int id = 0;
