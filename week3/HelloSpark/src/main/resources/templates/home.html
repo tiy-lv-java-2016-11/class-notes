@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home sweet home</title>
+</head>
+<body>
+    {{#user}}
+    Hello, {{user.loginName}}!!!!
+    {{/user}}
+
+    {{#saleItem}}
+    <p>We have {{saleItem}} on sale!!!!!</p>
+    {{/saleItem}}
+
+    {{^saleItem}}
+    <p>Sorry come back later for sales</p>
+    {{/saleItem}}
+
+    {{#users}}
+    <li>{{loginName}}</li>
+    {{/users}}
+
+    <p>Current items available:</p>
+    <ul>
+    {{#items}}
+        <li>{{.}}</li>
+    {{/items}}
+    </ul>
+
+</body>
+</html>
