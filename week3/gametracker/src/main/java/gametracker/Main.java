@@ -19,6 +19,7 @@ public class Main {
     public static List<Game> games = new ArrayList<>();
 
     public static void main(String[] args) {
+        Spark.staticFileLocation("/public");
         Spark.init();
 
         games.add(new Game("Battlefield One", "Shooter", "Xbox", 2016));
