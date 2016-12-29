@@ -1,5 +1,6 @@
 package com.theironyard.controllers;
 
+import com.theironyard.Utilities.PasswordStorage;
 import com.theironyard.models.Game;
 import com.theironyard.models.User;
 import com.theironyard.repositories.GameRepository;
@@ -73,10 +74,10 @@ public class GameTrackerController {
     public String login(HttpSession session, String userName, String password) throws Exception {
         User user = userRepository.findFirstByName(userName);
         if(user == null){
-            user = new User(userName, password);
+            user = new User(userName, PasswordStorage.createHash(password));
             userRepository.save(user);
         }
-        else if(!password.equals(user.getPassword())){
+        else if(!PasswordStorage.verifyPassword(password, user.getPassword())){
             throw new Exception("Incorrect password");
         }
         session.setAttribute(SESSION_USERNAME, userName);

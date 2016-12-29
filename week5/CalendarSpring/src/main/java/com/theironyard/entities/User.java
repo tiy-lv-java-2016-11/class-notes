@@ -1,11 +1,9 @@
-package com.theironyard.models;
-
-import org.hibernate.annotations.ColumnDefault;
+package com.theironyard.entities;
 
 import javax.persistence.*;
 
 /**
- * Created by jeff on 12/28/16.
+ * Created by jeff on 12/29/16.
  */
 @Entity
 @Table(name = "users")
@@ -17,12 +15,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
-    private String password;
-
-    public User(String name, String password) {
+    public User(String name) {
         this.name = name;
-        this.password = password;
     }
 
     public User() {
@@ -42,13 +36,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

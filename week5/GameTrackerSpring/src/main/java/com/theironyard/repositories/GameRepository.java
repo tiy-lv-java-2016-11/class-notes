@@ -1,6 +1,9 @@
 package com.theironyard.repositories;
 
 import com.theironyard.models.Game;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,6 +21,7 @@ public interface GameRepository extends JpaRepository<Game, Integer> {
     Game findFirstByGenre(String genre);
     int countByGenre(String genre);
     List<Game> findByGenreOrderByNameAsc(String genre);
+    Page<Game> findByGenre(Pageable pr, String genre);
 
     @Query("SELECT g FROM Game g WHERE g.name LIKE ?1%")
     List<Game> findByNameStartsWith(String name);
