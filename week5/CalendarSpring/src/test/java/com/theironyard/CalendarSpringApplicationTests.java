@@ -57,7 +57,8 @@ public class CalendarSpringApplicationTests {
     @Test
     public void testCreateEvent() throws Exception{
         String description = "Lunch";
-        String dateTime = LocalDateTime.now().toString();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String dateTime = localDateTime.toString();
 
         User user = new User("EventUser");
         userRepository.save(user);
@@ -70,7 +71,9 @@ public class CalendarSpringApplicationTests {
         ).andExpect(MockMvcResultMatchers.status().is3xxRedirection());
 
         assertEquals(1, eventRepository.count());
-//        Event event = eventRepository.findFirst();
+        Event event = eventRepository.findFirstBy();
+        assertEquals(description, event.getDescription());
+        assertEquals(localDateTime, event.getDateTime());
     }
 
 }

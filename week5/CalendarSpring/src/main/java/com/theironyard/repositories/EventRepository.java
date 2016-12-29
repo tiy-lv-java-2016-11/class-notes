@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface EventRepository extends JpaRepository<Event, Integer>{
     List<Event> findAllByOrderByDateTimeDesc();
-//    Event findFirst();
+    Event findFirstBy();
 }
