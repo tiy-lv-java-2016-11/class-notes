@@ -29,5 +29,13 @@ Welcome, {{name}}!<br>
 {{description}} {{dateTime}}<br/>
 {{/events}}
 
+{{#previous}}
+<a href="/?page={{prevPageNum}}"> <-- Previous Page</a>
+{{/previous}}
+
+{{#next}}
+<a href="/?page={{nextPageNum}}">Next Page --> </a>
+{{/next}}
+
 </body>
 </html>
