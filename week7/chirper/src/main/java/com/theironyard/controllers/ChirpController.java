@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -60,13 +61,13 @@ public class ChirpController {
     }
 
     @RequestMapping(path = "/chirp-create", method = RequestMethod.POST)
-    public String createChirp(HttpSession session, ChirpCommand command){
+    public String createChirp(HttpSession session, @Valid ChirpCommand command){
         User user = userRepository.findFirstByUsername((String)session.getAttribute(UserController.SESSION_USERNAME));
         if(user == null){
             return "redirect:/login";
         }
 
-        Chirp chirp = new Chirp(command.getMessage(), command.getSubject(), LocalDateTime.now(), user);
+        Chirp chirp = new Chirp(command.getMessage(), command.getSubject(), user);
         chirpRepository.save(chirp);
 
         return "redirect:/";
