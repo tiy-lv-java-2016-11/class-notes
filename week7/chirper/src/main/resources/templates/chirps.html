@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Chirps</title>
+</head>
+<body>
+
+<h1>Recent Chirps</h1>
+{{#username}}<h2>Welcome {{.}}!</h2>{{/username}}
+
+<ul>
+    {{#chirps}}
+    <li><a href="/chirp-detail/{{id}}">{{subject}}</a> - {{createdAt}} by {{user}}</li>
+    {{/chirps}}
+</ul>
+</body>
+</html>
