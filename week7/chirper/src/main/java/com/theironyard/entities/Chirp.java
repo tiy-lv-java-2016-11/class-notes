@@ -22,7 +22,6 @@ public class Chirp {
     private String subject;
 
     @Column(nullable = false)
-    @ColumnDefault("'1970-01-01")
     private LocalDateTime createdAt;
 
     @ManyToOne

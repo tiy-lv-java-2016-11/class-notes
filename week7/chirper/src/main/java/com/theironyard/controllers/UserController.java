@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(params = "/login", method = RequestMethod.GET)
+    @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String getLogin(HttpSession session){
         if(session.getAttribute(SESSION_USERNAME) != null){
             return "redirect:/";
@@ -30,7 +30,7 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(params = "/login", method = RequestMethod.POST)
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(HttpSession session, LoginCommand command) throws PasswordStorage.CannotPerformOperationException, PasswordStorage.InvalidHashException {
         User dbUser = userRepository.findFirstByUsername(command.getUsername());
 
@@ -44,6 +44,12 @@ public class UserController {
 
         session.setAttribute(SESSION_USERNAME, dbUser.getUsername());
 
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/logout", method = RequestMethod.POST)
+    public String logout(HttpSession session) {
+        session.invalidate();
         return "redirect:/";
     }
 }

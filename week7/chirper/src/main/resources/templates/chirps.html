@@ -8,11 +8,18 @@
 
 <h1>Recent Chirps</h1>
 {{#username}}<h2>Welcome {{.}}!</h2>{{/username}}
+{{^chirps}}
+    <h2>No Chirps found</h2>
+{{/chirps}}
 
 <ul>
     {{#chirps}}
     <li><a href="/chirp-detail/{{id}}">{{subject}}</a> - {{createdAt}} by {{user}}</li>
     {{/chirps}}
 </ul>
+
+<div>
+    Want to create a new <a href="/chirp-create">chirp?</a>
+</div>
 </body>
 </html>

@@ -29,7 +29,7 @@ public class ChirpController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(path = "/chirps", method = RequestMethod.GET)
+    @RequestMapping(path = "/", method = RequestMethod.GET)
     public String getChirps(HttpSession session, Model model){
 
         Sort sort = new Sort(Sort.Direction.DESC, "createdAt");
