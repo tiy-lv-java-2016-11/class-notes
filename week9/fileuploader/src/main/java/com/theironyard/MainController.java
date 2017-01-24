@@ -31,7 +31,7 @@ public class MainController {
 
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public String upload(MultipartFile file, String description) throws IOException {
-        File dir = new File("classpath:static/files");
+        File dir = new File("public/files");
         dir.mkdirs();
 
         File f = File.createTempFile("file", file.getOriginalFilename(), dir);
