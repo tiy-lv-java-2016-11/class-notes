@@ -1,12 +1,15 @@
 package com.theironyard.command;
 
+import javax.validation.constraints.Size;
+
 /**
  * Created by jeff on 1/11/17.
  */
 public class ChirpCommand {
+    @Size(max = 160)
     private String message;
+
     private String subject;
-    private String created_at;
 
     public String getMessage() {
         return message;
@@ -24,11 +27,4 @@ public class ChirpCommand {
         this.subject = subject;
     }
 
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
 }

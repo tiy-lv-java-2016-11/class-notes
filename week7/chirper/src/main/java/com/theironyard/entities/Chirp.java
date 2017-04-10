@@ -22,16 +22,14 @@ public class Chirp {
     private String subject;
 
     @Column(nullable = false)
-    @ColumnDefault("'1970-01-01")
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne
     private User user;
 
-    public Chirp(String message, String subject, LocalDateTime createdAt, User user) {
+    public Chirp(String message, String subject, User user) {
         this.message = message;
         this.subject = subject;
-        this.createdAt = createdAt;
         this.user = user;
     }
 
